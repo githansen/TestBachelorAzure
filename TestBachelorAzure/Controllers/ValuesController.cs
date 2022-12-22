@@ -29,5 +29,12 @@ namespace TestBachelorAzure.Controllers
         {
             return "HEI";
         }
+        [HttpGet]
+        [Route("hent")]
+        public List<Person> hent()
+        {
+            var liste = _db.personer.ToList();
+            return liste;
+        }
     }
 }

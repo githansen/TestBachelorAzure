@@ -15,12 +15,18 @@ const r = () => {
             'Content-Type': 'application/json'
         },
         'type': 'POST',
-        'url': "https://testbacheloraz.azurewebsites.net//api/Values/lagre",
+        'url': "https://testbacheloraz.azurewebsites.net/api/Values/lagre",
         'data': JSON.stringify(p),
         'dataType': 'json',
         
     })
-   
+    $.get("https://testbacheloraz.azurewebsites.net/api/Values/hent", function (data) {
+        let ut = "";
+        for (let i of data) {
+            ut += i.fornavn + " " + i.etternavn
+        }
+        $("#ut").html(ut);
+    })
 }
 function App() {
   return (
@@ -31,6 +37,7 @@ function App() {
           <label for="etternavn">Etternavn</label>
           <input type="text" id="etternavn"></input>
           <button onClick={r}>Test</button>
+          <div id="ut"></div>
     </div>
   );
 }
