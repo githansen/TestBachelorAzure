@@ -20,10 +20,13 @@ const r = () => {
         'dataType': 'json',
         
     })
+    
+}
+const vis = () => {
     $.get("https://testbacheloraz.azurewebsites.net/api/Values/hent", function (data) {
         let ut = "";
         for (let i of data) {
-            ut += i.fornavn + " " + i.etternavn
+            ut += i.fornavn + " " + i.etternavn + "<br>"
         }
         $("#ut").html(ut);
     })
@@ -37,6 +40,7 @@ function App() {
           <label for="etternavn">Etternavn</label>
           <input type="text" id="etternavn"></input>
           <button onClick={r}>Test</button>
+          <button onClick={vis}>Vis</button>
           <div id="ut"></div>
     </div>
   );
