@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
-builder.Services.AddDbContext<DB>(options => options.UseSqlite("Data Source=TestDatabase.db"));
+builder.Services.AddDbContext<DB>(options => options.UseSqlite("Data Source=Database.db"));
 
 var app = builder.Build();
 DBInit.Initialize(app);
